@@ -381,6 +381,16 @@ button {
   gap: 16px;
 }
 
+@media (min-width: 981px) {
+  .hero-copy {
+    transform: translateY(-32px);
+  }
+
+  .hero-aside {
+    transform: translateY(-48px);
+  }
+}
+
 .portrait-card {
   position: relative;
   overflow: hidden;
