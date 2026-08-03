@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kunal Shrestha Portfolio
 
-## Getting Started
+An editable one-page portfolio built with Next.js, TypeScript, Tailwind CSS,
+Framer Motion, and Lucide icons.
 
-First, run the development server:
+## Start locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Edit your content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Most personal content lives in one file:
 
-## Learn More
+`src/data/portfolio.ts`
 
-To learn more about Next.js, take a look at the following resources:
+Change the name, initials, role, email, location, biography, stats, projects,
+experience, skills, and social links there.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The page metadata (browser title and search description) lives in:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`src/app/layout.tsx`
 
-## Deploy on Vercel
+Replace `public/resume-sample.txt` with your own PDF, for example
+`public/resume.pdf`, and change `resumeUrl` in `src/data/portfolio.ts` to
+`/resume.pdf`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Edit the design
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Layout and page sections: `src/app/page.tsx`
+- Colors, typography, spacing, and responsive styles: `src/app/globals.css`
+- Navigation: `src/components/navigation.tsx`
+- Project card: `src/components/project-card.tsx`
+- Scroll animation: `src/components/reveal.tsx`
+
+The main colors are CSS variables at the top of `src/app/globals.css`, so the
+visual theme can be changed in one place.
+
+## Commands
+
+```bash
+npm run dev
+npm run lint
+npm run build
+npm run start
+```
