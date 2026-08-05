@@ -45,7 +45,7 @@ export const portfolio = {
   stats: [
     { value: "Full", label: "Stack development focus" },
     { value: "03", label: "Websites built from scratch" },
-    { value: "02", label: "Websites currently live" },
+    { value: "03", label: "Projects launched to production" },
     { value: "02", label: "Featured technical repositories" },
   ],
   projects: [
@@ -79,16 +79,16 @@ export const portfolio = {
     {
       title: "Sulux Hour",
       category: "Luxury e-commerce",
-      year: "Preview deployment",
+      year: "Live",
       description:
-        "Created a modern retail website from scratch around the idea of accessible luxury. The responsive storefront brings watches, signature fragrances, and designer eyewear into one consistent shopping experience, with clear category navigation, product discovery, brand storytelling, service information, and direct customer-contact options.",
+        "Created and launched a modern retail website from scratch around the idea of accessible luxury. The responsive storefront brings watches, signature fragrances, and designer eyewear into one consistent shopping experience, with clear category navigation, product discovery, brand storytelling, service information, and direct customer-contact options.",
       tags: [
         "E-commerce",
         "Multi-category retail",
         "Responsive UI",
-        "In deployment",
+        "Production deployment",
       ],
-      url: "https://sulux-hour-client.vercel.app/",
+      url: "https://suluxhour.com/",
       image: "/projects/sulux-hour.png",
       imageAlt: "Sulux Hour e-commerce website homepage",
     },
