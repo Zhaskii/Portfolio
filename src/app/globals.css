@@ -1516,9 +1516,17 @@ footer a {
     gap: 8px;
     padding: 60px 35px;
     border: 0;
-    border-left: 1px solid var(--ink);
+    border-left: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 0;
-    background: var(--lime);
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(125, 211, 252, 0.22),
+        transparent 18rem
+      ),
+      linear-gradient(155deg, #071a30 0%, var(--violet) 58%, #0a2948 100%);
+    box-shadow: -24px 0 60px rgba(7, 18, 32, 0.24);
+    color: var(--white);
     transform: translateX(105%);
     transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -1530,12 +1538,26 @@ footer a {
   .site-header nav a {
     width: 100%;
     padding: 14px 0;
-    border-bottom: 1px solid rgba(20, 20, 20, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 0;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.76);
     font-family: var(--serif);
     font-size: 32px;
     font-style: italic;
     font-weight: 400;
+  }
+
+  .site-header nav a:hover,
+  .site-header nav a:last-child,
+  .site-header nav a:last-child:hover {
+    background: transparent;
+    color: var(--white);
+  }
+
+  .site-header nav a.is-active:not(:last-child) {
+    background: transparent;
+    color: var(--lime);
   }
 
   .hero {
@@ -1649,20 +1671,49 @@ footer a {
   }
 
   .contact-inner h2 {
-    font-size: clamp(52px, 16vw, 86px);
+    max-width: 100%;
+    font-size: clamp(44px, 13vw, 64px);
+    line-height: 0.94;
   }
 
   .contact-actions {
     grid-template-columns: 1fr;
-    margin-top: 54px;
+    align-items: start;
+    gap: 28px;
+    margin-top: 42px;
+    padding-bottom: 34px;
+  }
+
+  .email-link {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    padding-bottom: 12px;
+    font-size: clamp(14px, 4.2vw, 18px);
+    overflow-wrap: anywhere;
+  }
+
+  .email-link svg {
+    flex-shrink: 0;
   }
 
   .social-links {
-    flex-wrap: wrap;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .social-links a {
+    min-height: 44px;
+    justify-content: space-between;
+    padding-inline: 14px;
   }
 
   footer {
     grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 16px;
   }
 
   footer p:nth-child(2) {
@@ -1671,6 +1722,13 @@ footer a {
 }
 
 @media (max-width: 560px) {
+  .contact-section::before {
+    width: 300px;
+    height: 300px;
+    right: -175px;
+    bottom: -150px;
+  }
+
   .experience-item {
     grid-template-columns: 1fr;
     gap: 14px;

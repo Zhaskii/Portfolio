@@ -338,10 +338,10 @@ export default function Home() {
 
             <Reveal
               delay={0.1}
-              className="contact-actions grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-10"
+              className="contact-actions min-w-0"
             >
               <a
-                className="email-link max-w-full min-w-0 break-all sm:break-normal"
+                className="email-link"
                 href={`mailto:${portfolio.email}`}
               >
                 <Mail size={22} />
