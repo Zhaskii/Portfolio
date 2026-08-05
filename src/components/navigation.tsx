@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
+import Image from "next/image";
 
 const links = [
   { label: "About", href: "#about" },
@@ -46,7 +47,15 @@ export function Navigation() {
       className={`site-header max-w-[100vw] ${scrolled ? "is-scrolled" : ""}`}
     >
       <a className="brand" href="#home" aria-label="Back to top">
-        <span>{portfolio.initials}</span>
+        <Image
+          className="brand-logo"
+          src="/KS.png"
+          alt=""
+          width={40}
+          height={40}
+          sizes="(max-width: 720px) 36px, 40px"
+          priority
+        />
         <p>
           {portfolio.name}
           <small>{portfolio.role}</small>
