@@ -51,7 +51,9 @@ export default function Home() {
                     </a>
                     <a
                       className="button button-secondary"
-                      href={`mailto:${portfolio.email}`}
+                      href="https://wa.me/9779843346258"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       Let&apos;s talk
                     </a>
