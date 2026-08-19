@@ -12,12 +12,15 @@ import { Navigation } from "@/components/navigation";
 import { CodeProjectCard } from "@/components/code-project-card";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
+import { AmbientMotion } from "@/components/ambient-motion";
+import { MotionSurface } from "@/components/motion-surface";
 import { portfolio } from "@/data/portfolio";
 
 export default function Home() {
   return (
     <>
       <Navigation />
+      <AmbientMotion />
 
       <main>
         <section
@@ -34,7 +37,7 @@ export default function Home() {
 
             <Reveal delay={0.08}>
               <h1 className="hero-title">
-                I build digital
+                <span className="hero-title-first">I build digital</span>
                 <span>products from</span>
                 <em>end to end.</em>
               </h1>
@@ -67,7 +70,11 @@ export default function Home() {
           </div>
 
           <div className="hero-aside flex w-full min-w-0 flex-col gap-4 md:grid md:grid-cols-[minmax(0,1fr)_minmax(180px,0.5fr)] md:items-end lg:flex lg:flex-col">
-            <div className="portrait-card relative block aspect-[4/5] min-h-[380px] w-full min-w-0 shrink-0 sm:aspect-[5/6] sm:min-h-[440px] md:min-h-[470px] lg:aspect-auto lg:min-h-[490px]">
+            <MotionSurface
+              className="portrait-card relative block aspect-[4/5] min-h-[380px] w-full min-w-0 shrink-0 sm:aspect-[5/6] sm:min-h-[440px] md:min-h-[470px] lg:aspect-auto lg:min-h-[490px]"
+              delay={0.18}
+              strength={5}
+            >
               <Image
                 src="/kunal-profile.png"
                 alt="Kunal Shrestha standing in front of a mountain landscape"
@@ -86,7 +93,8 @@ export default function Home() {
                 <MapPin size={16} />
                 {portfolio.location}
               </div>
-            </div>
+              <span className="portrait-scanline" aria-hidden="true" />
+            </MotionSurface>
             <div className="mini-note w-full min-w-0">
               <Sparkles size={20} />
               <p>

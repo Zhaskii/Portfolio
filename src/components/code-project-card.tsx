@@ -1,6 +1,6 @@
 import { ArrowUpRight, CheckCircle2, GitBranch } from "lucide-react";
 import type { CodeProject } from "@/data/portfolio";
-import { Reveal } from "./reveal";
+import { MotionSurface } from "./motion-surface";
 
 export function CodeProjectCard({
   project,
@@ -10,7 +10,11 @@ export function CodeProjectCard({
   index: number;
 }) {
   return (
-    <Reveal delay={index * 0.08} className="code-project-card min-w-0">
+    <MotionSurface
+      delay={index * 0.08}
+      className="code-project-card min-w-0"
+      strength={2.5}
+    >
       <div className="code-project-content">
         <div className="code-project-topline">
           <p className="code-project-category">{project.category}</p>
@@ -40,12 +44,17 @@ export function CodeProjectCard({
               <span key={tag}>{tag}</span>
             ))}
           </div>
-          <a href={project.url} target="_blank" rel="noreferrer">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+            data-cursor-redirect="true"
+          >
             View source
             <ArrowUpRight size={16} />
           </a>
         </div>
       </div>
-    </Reveal>
+    </MotionSurface>
   );
 }

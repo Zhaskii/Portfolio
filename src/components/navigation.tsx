@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { portfolio } from "@/data/portfolio";
 import Image from "next/image";
 
@@ -18,6 +19,12 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 28,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => {
@@ -42,10 +49,28 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
     <header
       className={`site-header max-w-[100vw] ${scrolled ? "is-scrolled" : ""}`}
     >
+      <motion.div className="scroll-progress" style={{ scaleX }} />
       <a className="brand" href="#home" aria-label="Back to top">
         <Image
           className="brand-logo"
@@ -83,7 +108,14 @@ export function Navigation() {
             }
             onClick={() => setOpen(false)}
           >
-            {link.label}
+            {activeSection === link.href.slice(1) && link.href !== "#contact" ? (
+              <motion.span
+                className="nav-active-pill"
+                layoutId="active-navigation-pill"
+                transition={{ type: "spring", stiffness: 360, damping: 32 }}
+              />
+            ) : null}
+            <span className="nav-label">{link.label}</span>
           </a>
         ))}
       </nav>

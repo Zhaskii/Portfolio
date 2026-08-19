@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/portfolio";
-import { Reveal } from "./reveal";
+import { MotionSurface } from "./motion-surface";
 
 export function ProjectCard({
   project,
@@ -15,9 +15,10 @@ export function ProjectCard({
     : {};
 
   return (
-    <Reveal
-      delay={(index % 2) * 0.08}
+    <MotionSurface
+      delay={index * 0.08}
       className="project-card min-w-0"
+      strength={3.5}
     >
       <a
         href={project.url}
@@ -76,6 +77,6 @@ export function ProjectCard({
           ))}
         </div>
       </div>
-    </Reveal>
+    </MotionSurface>
   );
 }
