@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { useEffect } from "react";
 import { useState } from "react";
+import Image from "next/image";
 
 export function AmbientMotion() {
   const shouldReduceMotion = useReducedMotion();
@@ -63,7 +64,18 @@ export function AmbientMotion() {
 
   return (
     <div className="ambient-motion" aria-hidden="true">
-      <div className="page-curtain"><span /></div>
+      <div className="page-curtain">
+        <div className="page-curtain-mark">
+          <Image
+            src="/KS.png"
+            alt=""
+            width={88}
+            height={88}
+            priority
+          />
+          <span />
+        </div>
+      </div>
       <motion.div className="pointer-aura" style={{ x: auraX, y: auraY }} />
       <motion.div
         className={`cursor-ring ${isInteractive ? "is-interactive" : ""} ${showsRedirect ? "shows-redirect" : ""}`}

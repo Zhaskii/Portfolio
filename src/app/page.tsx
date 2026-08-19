@@ -14,6 +14,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { AmbientMotion } from "@/components/ambient-motion";
 import { MotionSurface } from "@/components/motion-surface";
+import { TechnologyLogo } from "@/components/technology-logo";
 import { portfolio } from "@/data/portfolio";
 
 export default function Home() {
@@ -114,10 +115,11 @@ export default function Home() {
                 key={groupIndex}
               >
                 {portfolio.marquee.map((item) => (
-                  <span key={`${groupIndex}-${item}`}>
-                    {item}
+                  <div className="marquee-item" key={`${groupIndex}-${item}`}>
+                    <TechnologyLogo technology={item} />
+                    <span className="marquee-label">{item}</span>
                     <i>✦</i>
-                  </span>
+                  </div>
                 ))}
               </div>
             ))}
